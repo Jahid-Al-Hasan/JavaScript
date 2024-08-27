@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div>
+        <h1 class="heading" id="title">DOM Learning on chai or code</h1>
+        <p>Lorem ipsum dolor sit amet</p>
+        <h1>Lorem ipsum dolor sit.</h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+
+    </div>
+
+    <li>sldfkslf</li>
+    <li>sfslfkjslf</li>
+    <li>sldfksdskfsslf</li>
+</body>
+<script>
+    const div = document.createElement("div")
+    div.style.backgroundColor = "green"
+    div.appendChild(document.createTextNode("chai aur code"))
+    document.body.appendChild(div)
+
+    function _list(langName){
+        const li = document.createElement("li")
+        li.innerHTML = `${langName}` // traversing occur so less effective
+        document.body.appendChild(li)
+    }
+    _list("bangla")
+    _list("english")
+    _list("hindi")
+
+    //Or,
+
+    function addOptList(langName){
+        const li = document.createElement("li")
+        li.style.color = "red"
+        li.appendChild(document.createTextNode(langName)) // always try to use append child. good for dsa.
+        document.body.appendChild(li)
+    }
+    addOptList("goLang")
+    
+    // Edit 
+    const firstLang = document.body.querySelector("li:nth-child(2)")
+    // const firstLang = document.body.querySelector("li:last-child")
+    // firstLang.innerHTML = "Hasan"
+    const newli = document.createElement("li")
+    newli.textContent = "Hasan"
+    firstLang.replaceWith(newli)
+
+    // remove
+    const lastlang = document.querySelector("li:last-child")
+    lastlang.remove()
+
+</script>
+</html>
