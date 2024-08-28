@@ -1,9 +1,9 @@
 const programming = ['js', 'cpp', 'ruby', 'java', 'python']
 
 
-// programming.forEach(function(element){
-//     console.log(element);
-// })
+programming.forEach(function(element){
+    console.log(element);
+})
 
 // Or,
 // programming.forEach(element => {
