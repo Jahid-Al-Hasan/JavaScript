@@ -1,0 +1,42 @@
+<!--
+    JavaScript (Default js)
+    ---------------------------------
+    1. Synchronous => execute line by line
+    2. single threaded => comparatively slow than mordern languages
+
+    Execute Context
+    ---------------
+    * execute one line of code at a time
+    * Ex => "console.log(1)" => "console.log(1)" 
+    
+                Blocking Code VS Non Blocking Code
+    -------------------------------------------------------------
+    * block the flow of program         * does not block execution
+    * read file sync                    * read file async
+    * 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>setTimeout</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "Text Changed"
+    }
+
+    const changeMe = setTimeout(changeText, 2000); // execute one time. where "setInterval()" function execute infinite time with interval 2 second.
+    document.querySelector('#stop').addEventListener('click',()=>{
+        clearTimeout(changeMe) // "clearINterval()" to stop
+        console.log("Stopped")
+    })
+</script>
+</html>
