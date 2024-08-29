@@ -173,3 +173,34 @@ function newGame() {
   });
 }
 ```
+
+## project 6
+
+```javaScript
+// Function to generate a random hex color
+function getRandomHexColor() {
+  const hex = '0123456789ABCDEF';
+  let color = '#'; // Start with the hash symbol for the hex color code
+  for (let i = 0; i < 6; i++) {
+    const randomIndex = Math.floor(Math.random() * 16); // Get a random index from 0 to 15
+    color += hex[randomIndex]; // Append the random hex digit "ABCDEF" to the color string
+  }
+  return color;
+}
+
+let intervalId;
+
+document.querySelector('#start').addEventListener('click', () => {
+  clearInterval(intervalId); // Clear any existing intervals to avoid multiple intervals running simultaneously
+  intervalId = setInterval(() => {
+    const randomColor = getRandomHexColor();
+    const body = document.querySelector('body');
+    body.style = `background-Color:${randomColor}`;
+  }, 1000);
+});
+
+document.querySelector('#stop').addEventListener('click', () => {
+  clearInterval(intervalId);
+  // console.log(intervalId);
+});
+```
