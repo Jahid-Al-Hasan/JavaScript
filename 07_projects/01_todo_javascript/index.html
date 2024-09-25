@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo application</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <link rel="stylesheet" href="index.css" />
+
+  <body>
+    <div class="main-container">
+      <div id="newtask">
+        <form class="form" action="">
+          <input class="inp" type="text" />
+          <button class="btn" type="submit">Add</button>
+        </form>
+      </div>
+      <div class="taskContainer"></div>
+    </div>
+    <script>
+      document.querySelector(".form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const inputText = document.querySelector(".inp").value;
+        if (inputText !== "") {
+          //   console.log(inputText);
+          //  create new task div
+          //   const newTask = document.createElement("div");
+          //   newTask.classList.add("task"); // add class
+          //   newTask.innerHTML = inputText;
+          //   document.querySelector(".taskContainer").appendChild(newTask);
+          //   document.querySelector(".inp").value = "";
+          document.querySelector(".taskContainer").innerHTML += `
+            <div class = "task">
+                <span class = "span">
+                    ${(document.querySelector(".taskContainer").innerHTML =
+                      inputText)}
+                </span>
+                <button class = "deleteBtn">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+            `;
+          // delete task
+          const tasks = document.querySelectorAll(".deleteBtn");
+          for (let i = 0; i < tasks.length; i++) {
+            tasks[i].onclick = function () {
+              this.parentNode.remove();
+            };
+          }
+          // toggle text
+          const textDecoration = document.querySelectorAll(".span");
+          for (let i = 0; i < textDecoration.length; i++) {
+            textDecoration[i].onclick = function () {
+              this.classList.toggle("completed");
+            };
+          }
+          // clear input field
+          document.querySelector(".inp").value = "";
+        } else {
+          alert("Please write something");
+        }
+      });
+    </script>
+  </body>
+</html>

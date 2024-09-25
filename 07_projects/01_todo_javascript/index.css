@@ -1,0 +1,122 @@
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, rgb(192, 7, 192), rgb(66, 38, 223));
+  display: flex;
+  justify-content: center;
+}
+
+.main-container {
+  margin-top: 20px;
+  border: 2px solid white;
+  width: 60%;
+  min-width: 450px;
+  padding: 30px 40px;
+  max-height: 90vh;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column; /* This makes sure form stays at top and task list scrolls */
+  overflow: hidden; /* Control overflow at the container level */
+}
+
+#newtask {
+  background-color: #ffffff;
+  padding: 40px 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.form {
+  display: flex;
+}
+
+.inp {
+  border: 2px solid blueviolet;
+  width: 100%;
+  border-radius: 10px;
+  color: black;
+  height: 45px;
+  padding-left: 10px;
+}
+
+.btn {
+  width: 70px;
+  background: blueviolet;
+  color: white;
+  border-width: 5px;
+  border-radius: 5px;
+  border-color: blueviolet;
+  padding: 2px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto; /* Enable scrolling */
+  flex-grow: 1; /* Allow taskContainer to take the remaining height in main-container 
+  1. flex-grow determines how much a flex item will grow relative to the rest of the items inside a flex container.
+  2. 1 means that the element can expand and take up any remaining space in the container after other elements have been allocated their space.
+  3. 0 (default value) means the element will not grow to take up extra space; it only takes the space defined by its content or size properties.*/
+  padding-right: 10px; /* Prevent shadow from being cut off */
+}
+
+.taskContainer .task {
+  border: 1px solid blueviolet;
+  border-radius: 10px;
+  background: white;
+  width: 100%;
+  min-height: 45px;
+  /* padding: 10px 20px; */
+  box-shadow: 5px 5px 5px lightblue;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task .span {
+  margin: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #692d05;
+}
+
+.completed {
+  margin: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #692d05;
+  text-decoration: line-through;
+}
+
+.task .deleteBtn {
+  background-color: blueviolet;
+  color: white;
+  width: 45px;
+  height: 100%;
+  border: 1px solid blueviolet;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.task .deleteBtn:hover {
+  background-color: rgb(178, 114, 238);
+  color: white;
+  width: 45px;
+  height: 100%;
+  border: 1px solid blueviolet;
+  border-radius: 5px;
+  cursor: pointer;
+  /* outline: none; */
+}
+
+.taskContainer::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in WebKit browsers */
+}
